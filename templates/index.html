@@ -445,14 +445,17 @@
 
                     ////////////////////////
                     // 追加部分: zoomに送信
-                    var url = new URL("http://127.0.0.1:5000/comment?value="+ result_transcript);
-                    let response = fetch(url)
-                      .then(function(response) {
-                        return response;
-                      })
-                      .then(function(errorResponse) {
-                        console.log("error", errorResponse);
-                      });
+                    var postZoom = async function() {
+                      var url = new URL("http://127.0.0.1:5000/comment?value="+ result_transcript);
+                      let response = fetch(url)
+                        .then(function(response) {
+                          return response;
+                        })
+                        .then(function(errorResponse) {
+                          console.log("error", errorResponse);
+                        });
+                    }
+                    postZoom()
                     ////////////////////////
 
                     if(document.getElementById('checkbox_hiragana').checked && lang == 'ja-JP'){
